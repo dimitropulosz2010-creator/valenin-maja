@@ -61,3 +61,28 @@ function igenValasz() {
         }, i * 150);
     }
 }
+
+function igenValasz() {
+    const kerdes = document.getElementById("kerdes-doboz");
+    const valasz = document.getElementById("valasz-doboz");
+
+    // 1. Kérdés eltüntetése
+    kerdes.classList.add("elhalvanyul");
+
+    setTimeout(() => {
+        kerdes.style.display = "none";
+        
+        // 2. Válasz előkészítése
+        valasz.style.display = "block"; 
+        
+        // Kell egy pici szünet, hogy a böngésző "észrevegye" a display váltást
+        setTimeout(() => {
+            valasz.classList.add("lathato");
+            
+            // Itt hívd meg a szívecskés/Stitches függvényedet!
+            if (typeof inditsEffekteket === "function") {
+                inditsEffekteket();
+            }
+        }, 50);
+    }, 600);
+}
